@@ -18,14 +18,8 @@ app.get('/', (req, res) => res.redirect("/lcs.html")) //Getting HTML from file
 
 app.get('/lcs.html', (req, res) => res.sendFile(__dirname + "/lcs.html")) //Getting HTML from file
 
-app.get('/printlcs.html', (req, res) => res.sendFile(__dirname + "/printlcs.html")) //Getting HTML from file
-
 app.post('/lcs.html', function (req, res) { //When posting from this route, from the form
     handleRequest("lcs", req, res);
-})
-
-app.post('/printlcs.html', function (req, res) { //When posting from this route, from the form
-    handleRequest("printlcs", req, res);
 })
 
 function handleRequest(type, req, res) {
@@ -71,7 +65,7 @@ function readDNA(path, m, path2, n) {
     v = contents.substring(0, m).split("")
     w = contents2.substring(0, n).split("")
 
-    // fs.writeFileSync("./filesWrite.txt",
-    //     ""
-    // );
+    fs.writeFileSync("./filesWrite.txt",
+        ""
+    );
 }

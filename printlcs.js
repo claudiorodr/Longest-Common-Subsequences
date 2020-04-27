@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 module.exports = {
-    main: function (b, v, m, n, res) {
+    main: function (b, v, m, n, d, res) {
         var seq = []
         printLCS(m, n)
 
@@ -21,7 +21,11 @@ module.exports = {
                 }
             }
         }
-        console.log(seq)
-        
+
+                fs.appendFileSync("./filesWrite.txt",
+                    "----------------------------- Longest Common Subsequences ----------------------------- \n" +
+                    "Longest Common Subsequence: " + seq + " (" + d[m][n] + ")" + "\n"
+                );
+                res.download(`${__dirname}/filesWrite.txt`); // Set disposition and send it.
     }
 }
